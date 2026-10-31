@@ -47,7 +47,7 @@ def main():
     # 3. Load Model
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
-        torch_dtype=torch.float32,  # Standard for CPU (avoid half-precision overhead)
+        dtype=torch.float32,  # Standard for CPU (avoid half-precision overhead)
     )
     model.enable_input_require_grads()
 
@@ -62,7 +62,6 @@ def main():
         gradient_accumulation_steps=4,
         learning_rate=3e-4,
         num_train_epochs=1,  # Keep epochs low for CPU speed
-        logging_dir="logs",
         logging_steps=10,
         save_strategy="epoch",
         save_total_limit=1,
