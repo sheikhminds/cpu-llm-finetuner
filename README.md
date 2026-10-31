@@ -11,6 +11,15 @@ Fine-tuning LLMs is usually expensive. This repository demonstrates how to fine-
 3. **Orchestration:** GitHub Actions CI/CD pipeline runs the training script on standard CPU runners.
 4. **Output:** Produces a lightweight LoRA adapter that can be merged with the base model for inference.
 
+## Proven Results (CI Run [41221357990](https://github.com/sheikhminds/cpu-llm-finetuner/actions/runs/41221357990))
+| Metric | Value |
+|---|---|
+| Trainable params | 147,456 (0.18% of the model) |
+| Training runtime | 36.2s on a free CPU runner |
+| Total pipeline time | 1m39s (install + train + upload) |
+| Train loss | 3.594 → 3.564 over 1 epoch |
+| Hardware | GitHub Actions `ubuntu-latest`, **no GPU** |
+
 ## Getting Started
 1. **Install dependencies:**
    ```bash
